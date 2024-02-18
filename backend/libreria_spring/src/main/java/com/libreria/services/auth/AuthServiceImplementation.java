@@ -5,6 +5,7 @@ import com.libreria.dtos.UserDto;
 import com.libreria.entities.User;
 import com.libreria.enums.UserRole;
 import com.libreria.repositories.UserRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,24 @@ public class AuthServiceImplementation implements AuthService {
     public AuthServiceImplementation(UserRepository userRepository) {
         this.userRepository = userRepository;
 
+    }
+
+    /**
+     * Method to create an admin account by querying the UserRepository
+     * for an existing user with the role of ADMIN.
+     */
+    @PostConstruct
+    public void createAdminAccount(){
+        User adminAccount = userRepository.findByUserRole(UserRole.ADMIN);
+        if (adminAccount == null){
+            User user = new User();
+            user.setName("admin");
+            user.setLastname("admin");
+            user.setEmail("admin@gmail.com");
+            user.setPassword(new BCryptPasswordEncoder().encode("admin"));
+            user.setUserRole(UserRole.ADMIN);
+            userRepository.save(user);
+        }
     }
 
 
