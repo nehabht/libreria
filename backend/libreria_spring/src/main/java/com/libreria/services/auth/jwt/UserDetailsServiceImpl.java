@@ -23,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         //get user from DB
-       Optional<User> optionalUser = userRepository.findFirsByEmail(email);
+       Optional<User> optionalUser = userRepository.findFirstByEmail(email);
         if (optionalUser.isEmpty()) throw new UsernameNotFoundException("User not found", null);
         return new org.springframework.security.core.userdetails.User(optionalUser.get().getEmail(),optionalUser.get().getPassword(),new ArrayList<>());
 

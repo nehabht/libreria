@@ -1,4 +1,15 @@
 package com.libreria.dtos;
 
-public record AuthenticationResponse(String jwt) {
+import com.libreria.enums.UserRole;
+import lombok.Data;
+
+@Data
+public class AuthenticationResponse {
+    private String jwt;
+
+    private UserRole userRole;
+
+    private Long userId;
+
+
 }
