@@ -1,6 +1,5 @@
 <div class="container-fluid ps-md-0">
-  <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+  <div class="row g-0 align-items-cente justify-content-center">
     <div class="col-md-8 col-lg-6">
       <div class="login d-flex align-items-center py-5">
         <div class="container">
@@ -8,31 +7,11 @@
             <div class="col-md-9 col-lg-8 mx-auto">
               <h1 class="login-heading mb-5">
                 Welcome! <br />
-                Register Below
+                Login
               </h1>
 
               <!-- Sign In Form -->
-              <form [formGroup]="validateForm">
-                <div class="form-floating mb-3">
-                  <input
-                    type="name"
-                    class="form-control"
-                    id="floatingname"
-                    placeholder="Name"
-                    formControlName="name"
-                  />
-                  <label for="floatingname">Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input
-                    type="lastname"
-                    class="form-control"
-                    id="floatinglastname"
-                    placeholder="Lastname"
-                    formControlName="lastname"
-                  />
-                  <label for="floatinglastname">Lastname </label>
-                </div>
+              <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
                 <div class="form-floating mb-3">
                   <input
                     type="email"
@@ -57,14 +36,14 @@
                 <div class="d-grid">
                   <button
                     class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
-                    (click)="register()"
                     input
                   >
-                    Register
+                    Login
                   </button>
                   <div class="text-center">
                     <span class="small mt-1" href="#"
-                      >Alredy a member? <a routerLink="/login"> Login here</a>
+                      >Not a member yet?
+                      <a routerLink="/signup"> Register here</a>
                     </span>
                   </div>
                 </div>

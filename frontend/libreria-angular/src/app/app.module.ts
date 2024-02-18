@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './auth-components/signup/signup.component';
+import { LoginComponent } from './auth-components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, SignupComponent],
+  declarations: [AppComponent, SignupComponent, SignupComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

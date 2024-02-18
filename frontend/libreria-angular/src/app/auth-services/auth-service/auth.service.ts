@@ -16,4 +16,8 @@ export class AuthService {
     // Send a POST request to the server's signup endpoint with the provided data
     return this.http.post<[]>(BASIC_URL + 'api/auth/signup', signupRequest);
   }
+
+  login(loginRequest: any): Observable<any> {
+    return this.http.post<[]>(BASIC_URL + 'api/auth/login', loginRequest);
+  }
 }
